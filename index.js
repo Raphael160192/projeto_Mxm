@@ -25,29 +25,31 @@ btnGrupoPatrimonial.addEventListener('click' , event =>{
 
 
 var patrimonio = {
-    "AutheticationToken": {
-        "Username": "INT.DEV",
-        "Password": "MXM",
-        "EnvironmentName": "TESTE_MOBILE"
-        },
-        "Data": {
-        "InterfaceArquivoGrupoPatrimonial": [
-        {
-        "CodigoGrupoPatrimonial": codigo,
-        "DescricaoGrupoPatrimonial": descricao,
-        "Taxa": "F",
-        "PercentualDepreciacao01": percent_depre_cont,
-        "PercentualDepreciacao02": percent_depre_anual,
-        "PercentualDepreciacaoFiscal": percent_depre_fiscal,
-        "PercentualMaximoDepreciacaoResidual": percent_depre_residual,
-        "Proporcional": proporcional,
-        "TaxaDepreciacaoVariavel": "4",
-        "Inativo": inativo,
-        "CodigoResponsavel": "GERAL"
-        }
-        ]
-        }
-        }   
+            "AutheticationToken": {
+            "Username": "INT.DEV",
+            "Password": "MXM",
+            "EnvironmentName": "TESTE_MOBILE"
+            },
+            "Data": {
+            "InterfaceArquivoGrupoPatrimonial": [
+            {
+            "CodigoGrupoPatrimonial": "01",
+            "DescricaoGrupoPatrimonial": "GRUPO G1",
+            "Taxa": "F",
+            "PercentualDepreciacao01": "1",
+            "PercentualDepreciacao02": "2",
+            "PercentualDepreciacaoFiscal": "3",
+            "PercentualMaximoDepreciacaoResidual": "4",
+            "Proporcional": "N",
+            "TaxaDepreciacaoVariavel": "4",
+            "Inativo": "S",
+            "CodigoResponsavel": "GERAL"
+            }
+            ]
+            }
+            }
+        
+
 
 const enviaGrupoPatrimonial = async () =>  {
     
