@@ -4,11 +4,124 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
 
-    <button type="submit" id="envia_dados" name="envia_dados">Enviar</button>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            MXM
+          </a>
+        </div>
+      </nav>    
+
+      <form id="form-Patrimonial" class="container pt-5">
+        <div class="row mb-2">
+          <label class="col-sm-2 col-form-label">Código</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="codigo">
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label class="col-sm-2 col-form-label">Descrição</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="descricao">
+          </div>
+        </div>
+
+        <fieldset class="row mb-2 ">
+          <legend class="col-form-label col-sm-2 pt-0">Taxa</legend>
+            
+          <div class="col-sm-6 d-flex justify-content-around">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="radio1" value="fixa" >
+              <label class="form-check-label"  >
+                Fixa
+              </label>
+              
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="radio2" value="variavel">
+              <label class="form-check-label" >
+                Varíavel
+              </label>
+            </div>
+            
+          </div>
+        </fieldset>
+
+        <div class="row mb-2">
+            <label class="col-sm-6 col-form-label">Percentual de depreciação contábil anual da moeda da empresa</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" id="percent_depre_cont">
+            </div>
+          </div>
+          <div class="row mb-2">
+            <label class="col-sm-6 col-form-label">Percentual de depreciação anual da segunda moeda</label>
+            <div class="col-sm-2">
+              <input type="number" class="form-control" id="percent_depre_anual">
+            </div>
+          </div>
+          <div class="row mb-2">
+            <label class="col-sm-6 col-form-label">Percentual de depreciação fiscal anual da moeda da empresa</label>
+            <div class="col-sm-2">
+              <input type="number" class="form-control" id="percent_depre_fiscal">
+            </div>
+          </div>
+          <div class="row mb-2">
+            <label class="col-sm-6 col-form-label">Percentual a ser considerado no valor máximo residual</label>
+            <div class="col-sm-2">
+              <input type="number" class="form-control" id="percent_depre_residual">
+            </div>
+          </div>
+          <div class="row mb-2">
+            <label class="col-sm-6 col-form-label">Vida útil em meses</label>
+            <div class="col-sm-2">
+              <input type="number" class="form-control" id="vida_util_mes" min="1" max="12">
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <label class="col-sm-2 col-form-label">Área de Uso</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="area_uso">
+            </div>
+          </div>
+          <div class="row mb-2">
+            <label class="col-sm-2 col-form-label">Descrição do Bem</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="inputPassword3">
+            </div>
+          </div>
+
+          <div class="col-sm-10 ">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="proporcional">
+              <label class="form-check-label">
+                Considerar depreciação proporcional quando a primeira depreciação for no mesmo mês da aquisição
+              </label>
+            </div>
+            <div class="col-sm-10 ">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="inativo">
+                  <label class="form-check-label">
+                    Inativo
+                  </label>
+                </div>
+
+        
+        
+        <button type="submit" class="btn btn-primary mt-3" id="envia_dados">Sign in</button>
+      </form>
+
+
+
+
+
+    
     
     <script src="./index.js"></script>
 </body>

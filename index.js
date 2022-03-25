@@ -1,47 +1,55 @@
-const btnEnviaAdiantamento = document.getElementById('envia_dados')
-btnEnviaAdiantamento.addEventListener('click' , () =>{
+const btnGrupoPatrimonial = document.getElementById('envia_dados')
+let codigo = document.getElementById('codigo')
+let descricao = document.querySelector('#descricao')
+let fixa_variavel = document.querySelector('input[name="gridRadios"]:checked')
+let percent_depre_cont = document.querySelector('#percent_depre_cont')
+let percent_depre_anual = document.querySelector('#percent_depre_anual')
+let percent_depre_fiscal = document.querySelector('#percent_depre_fiscal')
+let percent_depre_residual = document.querySelector('#percent_depre_residual')
+let vida_util_mes = document.querySelector('#vida_util_mes')
+let proporcional = document.querySelector('#proporcional')
+let inativo = document.querySelector('#inativo')
 
-    enviaAdiantamento()
+
+
+
+
+
+btnGrupoPatrimonial.addEventListener('click' , event =>{
+    enviaGrupoPatrimonial()
+    event.preventDefault()
 })
 
-var adiantamento = {
-    "AutheticationToken": {
-    "Username": "INT.DEV",
-    "Password": "MXM",
-    "EnvironmentName": "TESTE_MOBILE"
-    },
-    "Data": {
-    "InterfacedaAntecipacao": [
-    {
-    "SequenciadoRegistro": 1,
-    "Identificacao": "CP",
-    "CodigodoClienteouFornecedor": "88477283812",
-    "DocumentodeAntecipacao": "127472183",
-    "CodigodoPortador": "98431",
-    "IndicadordeEstorno": "S",
-    "CodigodaFormadePagamento": "123",
-    "CodigodaContadePagamentoaoFornecedor": "231",
-    "CodigodoRementente": "E",
-    "Nominal": "Jose da Silva",
-    "CodigodaEmpresa": "120",
-    "CodigodaFilial": "2341",
-    "DatadoLancamento": "04062019",
-    "CodigodaMoeda": "R",
-    "CodigodaSegundaMoeda": "D",
-    "ValordoLancamento": "3002,43",
-    "ValordoLancamentoemSegundaMoeda": "",
-    "ValordaCotacao": "",
-    "Historico": "Antecipação de pagamento.",
-    "ContabilizacaoInformada": "0",
-    "DatadeCompetencia": "01062019",
-    "InterfaceGrupoAntecipacao": [],
-    "InterfaceRelDevolucaoAntecipacao": []
-    }
-    ]
-    }
-    }
 
-const enviaAdiantamento = async () =>  {
+
+
+
+var patrimonio = {
+    "AutheticationToken": {
+        "Username": "INT.DEV",
+        "Password": "MXM",
+        "EnvironmentName": "TESTE_MOBILE"
+        },
+        "Data": {
+        "InterfaceArquivoGrupoPatrimonial": [
+        {
+        "CodigoGrupoPatrimonial": codigo,
+        "DescricaoGrupoPatrimonial": descricao,
+        "Taxa": "F",
+        "PercentualDepreciacao01": percent_depre_cont,
+        "PercentualDepreciacao02": percent_depre_anual,
+        "PercentualDepreciacaoFiscal": percent_depre_fiscal,
+        "PercentualMaximoDepreciacaoResidual": percent_depre_residual,
+        "Proporcional": proporcional,
+        "TaxaDepreciacaoVariavel": "4",
+        "Inativo": inativo,
+        "CodigoResponsavel": "GERAL"
+        }
+        ]
+        }
+        }   
+
+const enviaGrupoPatrimonial = async () =>  {
     
     let init = {
         method: 'POST',
@@ -49,10 +57,10 @@ const enviaAdiantamento = async () =>  {
         headers:{
             "Content-Type": 'application/json',
         },
-        body: JSON.stringify(adiantamento)
+        body: JSON.stringify(patrimonio)
     }
     try{
-        const response = await fetch('https://arquitetura.mxm.com.br/teste_mobile/api/InterfacedaAntecipacao/Gravar' , init)
+        const response = await fetch('https://arquitetura.mxm.com.br/teste_mobile/api/InterfacedoGrupoPatrimonial/Gravar' , init)
     const dados = await response.json()
     console.log(dados)
 
@@ -60,9 +68,6 @@ const enviaAdiantamento = async () =>  {
     catch(error){
         return error
     }
-        
-    
     
     }
 
-    
